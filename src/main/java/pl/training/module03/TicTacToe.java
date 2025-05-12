@@ -21,7 +21,7 @@ public class TicTacToe {
             {2, 4, 6} //cross diagonal
     };
 
-    private final byte[] board = new byte[9]; // kontener gdzie przechowujemy wartości pól
+    private final Player[] board = new Player[9]; // kontener gdzie przechowujemy wartości pól
     private Player currentPlayer = Player.PLAYER_X;
     private Player winner = Player.EMPTY;
     private boolean isGameOver = false;
@@ -74,14 +74,14 @@ public class TicTacToe {
 
     private void togglePlayer() {
         if (currentPlayer == Player.PLAYER_X) {
-            currentPlayer = PLAYER_O;
+            currentPlayer = Player.PLAYER_O;
         } else {
             currentPlayer = Player.PLAYER_X;
         }
     }
 
     private boolean isBoardFull() {
-        for (byte field : board) {
+        for (Player field : board) {
             if (field == Player.EMPTY) {
                 return false;
             }
