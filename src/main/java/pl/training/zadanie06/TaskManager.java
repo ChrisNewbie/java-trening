@@ -3,7 +3,7 @@ package pl.training.zadanie06;
 public class TaskManager {
 
     private static final int MAX_NUMBER_OF_TASKS = 10;
-    private Task[] tasks; //tablica z zadaniami
+    private final Task[] tasks; //tablica z zadaniami
     private int numberOfCurrentTasks;
 
     public TaskManager() {
@@ -16,7 +16,7 @@ public class TaskManager {
             System.out.println("Nie można dodać więcej zadań.");
             return;
         }
-        Task task = new Task(name, description);
+        var task = new Task(name, description);
         tasks[numberOfCurrentTasks++] = task;
         System.out.println("Dodano zadanie: " + task);
     }
@@ -30,7 +30,7 @@ public class TaskManager {
     }
 
     public void markTaskAsDoneV1(int index) {
-        Task task = tasks[index];
+        var task = tasks[index];
         task.setDone(true);
     }
 
@@ -46,5 +46,15 @@ public class TaskManager {
         } else {
             System.out.println("Zadanie o numerze " + index + " zostało już wcześniej zakończone.");
         }
+    }
+
+    public void removeTask(int index) {
+        if (index < 0 || index >= numberOfCurrentTasks) {
+            System.out.println("Nie ma zadania o numerze " + index);
+            return;
+        }
+        var task = tasks[index];
+        tasks[numberOfCurrentTasks -= 1] = task;
+        System.out.println("Usunięto zadanie: " + task);
     }
 }

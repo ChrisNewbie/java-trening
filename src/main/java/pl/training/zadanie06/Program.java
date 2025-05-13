@@ -26,5 +26,10 @@ public class Program {
 
         taskManager.markTaskAsDoneV2(15);
         taskManager.printTasks();
+
+        taskManager.removeTask(0);
+        taskManager.printTasks();
+
+
     }
 }
