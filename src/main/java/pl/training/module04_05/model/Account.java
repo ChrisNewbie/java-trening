@@ -5,14 +5,15 @@ import java.util.Objects;
 public class Account {
 
     private final String number;
-    private Money balance;
+    protected Money balance;
 
     public Account(String number, Money balance) {
-        this.number = number;
+        this.number = number; //"this" oznacza bieżący obiekt. "Weź mi z bieżącego obiektu number i przypisz do niego to co podaję w wywołaniu metody"
         this.balance = balance;
     }
 
     public void deposit(Money amount) {
+//        this.balance = this.balance.add(amount); // teoretycznie można by tak napisać, ale nikt tak nie pisze, ale jest to poprawne
         balance = balance.add(amount);
     }
 

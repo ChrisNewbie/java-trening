@@ -1,8 +1,6 @@
 package pl.training.module04_05;
 
-import pl.training.module04_05.model.Currency;
-import pl.training.module04_05.model.InsufficientFoundsException;
-import pl.training.module04_05.model.Money;
+import pl.training.module04_05.model.*;
 import pl.training.module04_05.repository.AccountRepository;
 import pl.training.module04_05.repository.ArrayAccountRepository;
 
@@ -50,6 +48,7 @@ public class Application {
         var secondAccount = bank.createAccount(DEFAULT_CURRENCY);
 
         var amount = Money.of(100, DEFAULT_CURRENCY);
+
         try {
             bank.deposit(firstAccount.getNumber(), amount);
             bank.transer(firstAccount.getNumber(), secondAccount.getNumber(), Money.of(10, DEFAULT_CURRENCY));
@@ -59,5 +58,24 @@ public class Application {
         } catch (InsufficientFoundsException insufficientFoundsException) {
             System.out.println("Insufficient funds");
         }
+
+        bank.printReport();
+
+        Account account = new PremiumAccount("000000000000000001");
+        System.out.println(amount);
+        account.deposit(Money.of(100, DEFAULT_CURRENCY));
+
+/*//        PremiumAccount premiumAccount = account;
+
+        if (account instanceof PremiumAccount) {
+//            PremiumAccount premiumAccount = (PremiumAccount) account;
+        } else {
+            System.out.println(amount);
+        }
+
+        if (account instanceof PremiumAccount) {
+            PremiumAccount newPremiumAccount = (PremiumAccount) account;
+            newPremiumAccount.getBalance();
+        }*/
     }
 }

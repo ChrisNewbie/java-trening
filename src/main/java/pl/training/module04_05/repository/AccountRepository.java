@@ -10,6 +10,9 @@ public interface AccountRepository {
 
     Account[] findAll();
 
-    Account findByNumber(String number);
+    Account findByNumber(String number); // tego unikamy
+
+
+
 
 }
