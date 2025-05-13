@@ -1,4 +1,6 @@
-package pl.training.module04_05_06;
+package pl.training.module04_05.repository;
+
+import pl.training.module04_05.model.Account;
 
 public class ArrayAccountRepository implements AccountRepository {
 
