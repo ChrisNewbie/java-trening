@@ -1,14 +1,32 @@
 package pl.training.module04_05_06;
 
 public enum Currency {
-    PLN, USD, EUR;
+    PLN {
+        @Override
+        public String toString() {
+            return "zł";
+        }
+    }, USD {
+        @Override
+        public String toString() {
+            return "$";
+        }
 
-    @Override
+    }, EUR {
+        @Override
+        public String toString() {
+            return "€";
+        }
+    };
+
+/*    @Override
     public String toString() {
         return switch (this) {
             case PLN -> "zł";
             case EUR -> "€";
             case USD -> "$";
         };
-    }
+    }*/
+
+
 }
